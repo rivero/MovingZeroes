@@ -74,7 +74,7 @@ public:
     }
 
 };
-// To execute C++, please define "int main()"
+
 int main() 
 {
     Solution sol;
@@ -93,5 +93,9 @@ int main()
 	res = sol.removeZeroes({ 0, 0, 0, 0, 0, 0, 0 });
 	cout << res << endl;
 	assert(res == 0);
+
+    res = sol.removeZeroes({ 0, 0, 0, 0, 1, 1, 1, 1 });
+	cout << res << endl;
+	assert(res == 4);
     return 0;
 }
