@@ -4,7 +4,7 @@
 #include <queue>
 #include <vector>
 #include <algorithm>
-
+#include <assert.h>
 #include <cstdlib>
 #include <ctime>
 
@@ -26,48 +26,72 @@ Answer: input modified to [1, 2, 4, ?, ?], return 3
 1 0 2 0 4
 ^
         ^
-1 4 2 0 0
-  ^
-      ^
+  ^   ^
     ^
-def removeZeroes(arr: List[int]) -> int:
-    # TODO
-*/
+        */
 class Solution
 {
 public:
-    int removeZeroes(vector<int>& vec)
+    int removeZeroes(vector<int> vec)
     {
-        if (vec.size() < 3)
+		printvec(vec);
+        int left{}, right{ int(vec.size()) - 1 };
+        while (left < right)
         {
-            return vec.size();
-        }
-        bool swapped = false;
-        int left{}, right{ vec.size() - 1 }, counter{};
-        while (left != right)
-        {
-            swapped = false;
             if (vec[left] == 0)
             {
                 if (vec[right] != 0)
                 {
-                    swap(vec[left], vec[right]);
-                    ++counter;
-                    swapped = true;
+					swap(vec[left++], vec[right--]);
+				}
+            }
+            else
+            {
+				left++;
+            }
+            if (left < right && vec[right] != 0)
+            {
+                if (vec[left] == 0)
+                {
+					swap(vec[left++], vec[right--]);
                 }
             }
-            if (swapped)
-                left++; right--;
+            else
+				right--;
 
         }
-        return counter;
+        printvec(vec);
+        return left;
     }
+
+    void printvec(const vector<int>& vec) const
+    {
+        for (auto elem : vec)
+        {
+            cout << elem << " ";
+        }
+        cout << endl;
+    }
+
 };
 // To execute C++, please define "int main()"
-int main() {
-    auto words = { "Hello, ", "World!", "\n" };
-    for (const auto& word : words) {
-        cout << word;
-    }
+int main() 
+{
+    Solution sol;
+    auto res = sol.removeZeroes({ 1, 0, 2, 0, 4 });
+    cout << res << endl;
+    assert(res == 3);
+
+	res = sol.removeZeroes({ 0, 0, 0, 1, 0, 2, 0, 4 });
+	cout << res << endl;
+	assert(res == 3);
+
+	res = sol.removeZeroes({ 0, 0, 0, 0, 0, 0, 0, 4 });
+	cout << res << endl;
+	assert(res == 1);
+
+	res = sol.removeZeroes({ 0, 0, 0, 0, 0, 0, 0 });
+	cout << res << endl;
+	assert(res == 0);
     return 0;
 }
