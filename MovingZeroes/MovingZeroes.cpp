@@ -97,5 +97,9 @@ int main()
     res = sol.removeZeroes({ 0, 0, 0, 0, 1, 1, 1, 1 });
 	cout << res << endl;
 	assert(res == 4);
+
+	res = sol.removeZeroes({ 0 });
+	cout << res << endl;
+	assert(res == 0);
     return 0;
 }
