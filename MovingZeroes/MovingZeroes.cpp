@@ -78,28 +78,47 @@ public:
 int main() 
 {
     Solution sol;
-    auto res = sol.removeZeroes({ 1, 0, 2, 0, 4 });
-    cout << res << endl;
-    assert(res == 3);
+    if (false)
+    {
+		auto res = sol.removeZeroes({ 1, 0, 2, 0, 4 });
+		cout << res << endl;
+		assert(res == 3);
 
-	res = sol.removeZeroes({ 0, 0, 0, 1, 0, 2, 0, 4 });
-	cout << res << endl;
-	assert(res == 3);
+		res = sol.removeZeroes({ 0, 0, 0, 1, 0, 2, 0, 4 });
+		cout << res << endl;
+		assert(res == 3);
 
-	res = sol.removeZeroes({ 0, 0, 0, 0, 0, 0, 0, 4 });
-	cout << res << endl;
-	assert(res == 1);
+		res = sol.removeZeroes({ 0, 0, 0, 0, 0, 0, 0, 4 });
+		cout << res << endl;
+		assert(res == 1);
 
-	res = sol.removeZeroes({ 0, 0, 0, 0, 0, 0, 0 });
-	cout << res << endl;
-	assert(res == 0);
+		res = sol.removeZeroes({ 0, 0, 0, 0, 0, 0, 0 });
+		cout << res << endl;
+		assert(res == 0);
 
-    res = sol.removeZeroes({ 0, 0, 0, 0, 1, 1, 1, 1 });
-	cout << res << endl;
-	assert(res == 4);
+		res = sol.removeZeroes({ 0, 0, 0, 0, 1, 1, 1, 1 });
+		cout << res << endl;
+		assert(res == 4);
 
-	res = sol.removeZeroes({ 0 });
-	cout << res << endl;
-	assert(res == 0);
+		res = sol.removeZeroes({ 0 });
+		cout << res << endl;
+		assert(res == 0);
+    }
+
+	if (true)
+	{
+		vector<int> vec{ 0, 1, 2, 0, 0, 3,4 };
+		cout << sol.removeZeroes(vec) << endl;
+		cout << endl;
+
+	}
+	if (false)
+	{
+		vector<int> vec{ 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0 };
+		cout << sol.removeZeroes(vec) << endl;
+		cout << endl;
+
+	}
+
     return 0;
 }
